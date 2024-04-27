@@ -31,7 +31,7 @@
             
               <?php if($check) { ?>
 
-              <li class="nav-item">
+              <li class="nav-item" style='align-self:center;'>
                 Вы вошли как <?=$_SESSION['name']?>!
               </li>
               <li class="nav-item">

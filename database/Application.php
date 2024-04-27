@@ -39,5 +39,18 @@ class Application extends Connect {
         $appls = mysqli_fetch_all(mysqli_query($this->connection, $query));
         return $appls;
     }
+    public function get_applications_admin() {
+        $query = "SELECT * FROM applications";
+        $appls = mysqli_fetch_all(mysqli_query($this->connection, $query));
+        return $appls;
+    }
+
+    private function find ($id) {return mysqli_fetch_assoc(mysqli_query($this->connection, "SELECT * FROM applications WHERE id=$id"));}
+    public function change_status ($id, $status) {
+            $appl = $this->find($id);
+            if ($appl['status_id']!=$status) {
+                return mysqli_query($this->connection, "UPDATE applications SET status_id='$status' WHERE id=$id");
+            }
+    }
 }
 ?>

@@ -11,8 +11,10 @@ if(!isset($result['error_valid'])){
     $_SESSION['user_role'] = $result['role'];
     $_SESSION['id_user'] = $result['id_user'];
     $_SESSION['name'] = $result['name'];
+    if ($result['role'] == 'admin') {header("Location: /admin/");
+                                     die(); }
     header("Location: /");
-    var_dump($result);
+    // var_dump($result);
 }
 
 // echo $_SESSION['id_user'];
